@@ -1,50 +1,37 @@
-<h1 align="center">Welcome to ApexFL 👋</h1>
-<p>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
-  <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" target="_blank">
-    <img alt="License: GPLv3" src="https://img.shields.io/badge/License-GPLv3-yellow.svg" />
-  </a>
-</p>
+# $D^2FL$ 
 
-> A Scalable Federated Learning Backdoor Attack and Defense Platform
+## Overview
 
-### 🏠 [Homepage](https://github.com/Elonisme/ApexFL)
+This repository provides the code and instructions for reproducing the experiments presented in the paper  *$D^2FL$: Dimensional Disaster-oriented Backdoor Attack Defense Of Federated Learning*. The primary goal of this project is to reproduce results.
 
-<table>
-    <tr>
-        <td><img src="examples/mnist-trigger.png" alt="Image 1" style="width: 100%; height: auto;"></td>
-        <td><img src="examples/mnist-blended.png" alt="Image 2" style="width: 100%; height: auto;"></td>
-        <td><img src="examples/mnist-sig.png" alt="Image 3" style="width: 100%; height: auto;"></td>
-    </tr>
-    <tr>
-        <td><img src="examples/cifar10-trigger.png" alt="Image 4" style="width: 100%; height: auto;"></td>
-        <td><img src="examples/cifar10-blended.png" alt="Image 5" style="width: 100%; height: auto;"></td>
-        <td><img src="examples/cifar10-sig.png" alt="Image 6" style="width: 100%; height: auto;"></td>
-    </tr>
-</table>
+## Environment Setup
 
+To reproduce the experiments, please ensure your system meets the following requirements: 
 
+- **Operating System**: Ubuntu 20.04.5 LTS
+- **Python version**: Python 3.8
+-  **Libraries**: Please see `requirements.sh` for a complete list of required packages. 
+- **Hardware**: NVIDIA GeForce RTX 4090D with CUDA 11.8
 
-## Features
-- Uses half-precision training
-- Multiple neural network models
-- Various defense algorithms
-- Supports four common types of backdoor attacks
+### Additional Requirements 
 
+- **Dataset**: Datasets are automatically downloaded.
+- **Pre-trained Models**: If using pre-trained models, see the [Pretrained Models](#pretrained-models) section.
 
-## Install
+## Installation
 
-```sh
-git clone https://github.com/Elonisme/ApexFL.git
-```
+1.  Clone this repository:
+    ```sh
+    git clone https://github.com/Elonisme/D2FL.git
+    ```
 
-## Requirements
-```sh
-chmod +x ./requirements.sh
-./requirements.sh
-```
+2. Install required dependencies:
+    ```sh
+    chmod +x ./requirements.sh
+    ./requirements.sh
+    ```
 
-## Usage
+## Training and Testing
 ### Quick Start
 ```sh
 python main.py
@@ -69,7 +56,7 @@ Modify the basic configuration in the get_base_config function.
 ```python
 def get_base_config():
     base_config = {'num_clients': 100, 'client_frac': 0.15, 'malicious_rate': 0.2,
-                   'model_name': 'resnet18', 'data_name': 'cifar10', 'aggregate_type': 'flclaude',
+                   'model_name': 'resnet18', 'data_name': 'cifar10', 'aggregate_type': 'flame',
                    'poison_type': 'trigger', 'poisoning_threshold': 5, 'num_epochs': 50,
                    'save_slogan': True, 'fl_print': True, 'sampling_stride': 2, 'alpha': 0.5,
                    'poison_probability': 0.3, 'pretrained': False}
@@ -77,51 +64,21 @@ def get_base_config():
 ```
 
 
-### Dataset
-- MNIST
-- CIFAR10
-- CIFAR100
-- Tiny Imagenet
+## Pretrained Models
+If you would like to use pretrained models, download them from the following links:
+- [Google Drive](https://drive.google.com/drive/folders/10CkBB68cRyZNjqUdrNnXUHaV8UznF0P9?usp=drive_link)
+- Place the downloaded models in the pretrain_weights/ directory 
 
-### Model
-- LeNet
-- ResNet
-- VGG
-- AlexNet
-- GoogLeNet
-- WideResNet
+## References
 
-### Attacks
-- Dba
-- Trigger
-- Sig
-- Blended
+If you find this repository useful, please consider citing the following paper:
 
-### Defense
-- FedAvg
-- Flame
-- FlTrust
-- Krum
-- Median
-- Deepsight
+``` bibtex
+@article{your_paper_reference,
+  title={Paper Title},
+  author={Author Name(s)},
+  journal={Journal/Conference Name},
+  year={Year}
+}
+```
 
-
-## Author
-
-👤 **Elon Li**
-
-* Website: https://elonblog.pages.dev/
-* Github: [@Elonisme](https://github.com/Elonisme)
-
-
-## Show your support
-
-Give a ⭐️ if this project helped you!
-
-## 📝 License
-
-Copyright © 2024 [Elon Li](https://github.com/Elonisme).<br />
-This project is [GPLv3](https://www.gnu.org/licenses/gpl-3.0.en.html) licensed.
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
