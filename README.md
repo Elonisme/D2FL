@@ -74,11 +74,13 @@ If you would like to use pretrained models, download them from the following lin
 If you find this repository useful, please consider citing the following paper:
 
 ``` bibtex
-@article{your_paper_reference,
-  title={Paper Title},
-  author={Author Name(s)},
-  journal={Journal/Conference Name},
-  year={Year}
+@inproceedings{li2024d,
+  title={D 2 FL: Dimensional Disaster-oriented Backdoor Attack Defense Of Federated Learning},
+  author={Li, Yilong and Zhang, Jianyi and Zhou, Ziyin and Sun, Zezheng and Ji, Xu and Li, Zeping and Han, Jiameng and Zhao, Zhangchi},
+  booktitle={2024 IEEE 23rd International Conference on Trust, Security and Privacy in Computing and Communications (TrustCom)},
+  pages={1790--1796},
+  year={2024},
+  organization={IEEE}
 }
 ```
 
